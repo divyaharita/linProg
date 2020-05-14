@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+<head>
+<title>Intro to LP</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>   <!-- Chart JS -->
+
+<link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet"> 
+
+<link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="intro.css" />
+
+
+
+<script src='intro_init.js'> </script>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid" >
+	<div class="row">
+		<div class="col-7" id="divUI">
+				
+				<h4><span style="font-size: 24pt; background-color: yellow;  font-weight: bold;">A</span>pples: <span id="numApples"></span></h4>
+				<div class="sliderBox">
+							<div id="slider"></div>
+				</div>			
+
+				<div style="display: none;">
+							a = <input type="text" value="6" size="4" id="val_a" onchange="set_a()">
+				</div>
+				<h4><span style="font-size: 24pt; background-color: yellow;  font-weight: bold;">B</span>ananas:<span id="numBananas"></span></h4>
+					
+				<div class="sliderBox">	
+					<div id="slider1"></div>
+				</div>
+
+				<div style="margin-left: 2em; font-size: 20pt;">
+				 <div style="display: none;"> b = <input type="text" value="4" size="4" id="val_b" onchange="set_b()"> </div>
+
+				</div>
+					<div class="canvasBox">
+						<canvas id="myCanvas"></canvas>
+					</div>
+
+					<script src='intro_events.js'></script>
+		</div>
+		
+		<div class="col" id="divText">
+					
+					<h4 id="moduleH4">Module 1</h4>
+					
+					<h2 id="h2TextHead">
+					<span class="sectionNumber">1. </span> What is Linear Programming and Operations Research?
+					</h2>
+					
+					<div id="tabStrip">
+						<span id="tab1" class="tab activeTab" onclick="goTab(this,1)">1</span> 
+						<span id="tab2" class="tab inactiveTab" onclick="goTab(this,2)">2</span> 
+						<span id="tab3" class="tab inactiveTab" onclick="goTab(this,3)">3</span>
+						<span id="tab4" class="tab inactiveTab" onclick="goTab(this,4)">4</span>
+					</div>
+					
+									
+						<div id="stuff1" class="stuffDiv activeStuff">
+						<h3 class="stuffH3"><span class="sectionNumber">1.1 </span>The Science of Rational Decision Making</h3>
+							<p class="stuff">Everyone has to take decisions. Sometimes decision making is a confusing process. Organizations usually face decisions that are much more 
+								complicated than individual decisions. Also, organizational decisions have a bigger impact and may affect many people. </p>
+							
+							<p class="stuff">Incorrect or non-optimum decisions can result in big penalties. For example, during World War II, mathematicians and other experts were
+								tasked to find out ways to allocate resources to the war effort in the best way. Wrong decisions could mean being defeated in the war.</p>
+							
+							<p class="stuff">The discipline of <strong>Operations Research </strong> evolved over many decades in the 20th century, as experts tried to create concepts and tools to 
+							   solve complicated decision processes in a rational and scientific way, helping to avoid waste, loss and failure to achieve goals.
+							   These techniques have found applications in all kinds of areas like management, healthcare, agriculture, manufacturing, defense etc.</p>
+						</div>
+
+						<div id="stuff2" class="stuffDiv inactiveStuff">
+						<h3 class="stuffH3"><span class="sectionNumber">1.2 </span>What kind of decisions are we talking about?</h3>
+								<p class="stuff">In this context, we are only talking about situations that we can describe mathematically. So for 
+												example, this doesn't include ethical or moral decisions. It does include cases where the decision 
+												involves numbers that we have to choose, and where the consequences of our choice can be expressed 
+												as numbers. For example, if a factory produces A numbers of some product per week then one consequnce is that they may have to spend A x 1000 rupees per week to do so. So the effect of our number choices on the consequences should be such that	we can express it mathematically in terms of functions. This is part of what we call our <strong>model</strong> of our problem.</p>
+								
+								<p class="stuff">By the way, the violet curve is an example of a non linear equation while the green line is an example of
+												a linear equation.</p>
+												
+								
+								
+								<p class="stuff">Another example is that if we <strong>decide</strong> to eat 5 apples per week, we will get about 5 x 52 calories per week. Here apples per week is our decision, and the calories is the result of the decision. The relation between the decision
+								and the consequence is our <strong>model</strong> of the situation. In this case it is a <strong>linear</strong> model
+								which is described by a <strong>linear equation</strong>.</p>
+								
+								<p class="stuff">We need a certain number of calories in order to be healthy, which is our <strong>goal</strong> in 
+													this simple example. But too many calories can be bad for us, and we may end up spending
+													more than we can afford if we eat too many apples. These are examples of <strong>constraints</strong>
+													that we have to apply while choosing our decision values.</p>
+												
+						</div>
+						
+						<div id="stuff3" class="stuffDiv inactiveStuff">
+						<h3 class="stuffH3"><span class="sectionNumber">1.3 </span><u>Linear</u> Programming</h3>
+						
+						<p class="stuff">We have noted that the apple consumption example involves linear relationships, i.e. it was a linear model.
+											In the real world, we often see that different quantities are inter-related through quite complex mathematical
+												functions which are not linear in general. Mathematical techniques do exist for these cases, 
+												but they tend to be difficult to understand and apply. Linear models are much easier in comparison
+												to non-linear ones. </p>
+												
+										<p class="stuff">Linear Programming refers to the mathematical methods by which optimal values of
+										certain quantities can be chosen, in order to get the best possible outcome, while ensuring that
+										we meet certain specified goals, all the time assuming that the equations that describe the problem are
+										all linear equations.</p>
+												
+						<p class="stuff">Although many real world problems involve non-linear functions, many practical problems can be represented <strong>approximately</strong>	by linear equations, with some loss of accuracy. So linear programming has been
+												found to be quite effective in practical situatiions.</p>
+												
+						<p class="stuff">Also, many concepts that we learn in linear programming will turn out to be relevant in
+									non-linear programming as well, so linear programming is a stepping stone to begin understanding
+									the more general types of operational research.</p>
+						
+						</div>
+						
+						<div id="stuff4" class="stuffDiv inactiveStuff">
+							<h3 class="stuffH3"><span class="sectionNumber">1.4 </span>How these Tutorials Work</h3>
+							<p class="stuff">This is a set of interactive tutorials about Linear Programming. Most of these web
+							pages will have a format similar to this one. In the left panel you will have a Graphical User Interface (GUI)
+							that you can play with and experiment on each concept. On the right you will have notes about the concept 
+							and some guidelines that will help you learn the concept. The left panel is like a virtual laboratory where you do guided 
+							experiments, think about the results, and master the concepts that you need to learn.</p>
+							
+							<p class="stuff">So let's get started. The experiment panel has two sliders that you can use to set two 
+							quantities A and B. (This could be numbers of apples and bananas that someone eats in a week, for example).
+							The graph shows you two functions of some variable x. One is a linear function of x and the other is a non-linear function of x.
+							Right now, we don't need to worry about what this actually represents. The point is just that the nature of the
+							function depends on our choice of A and B. </p>
+							
+							<p class="stuff">Take this opportunity to make sure that your browser is able to run the experiment correctly.
+							Move the sliders A and B, and watch how the two functions change. (Again, this is just a random example, and it
+							doesn't represent a linear programming problem or any practical problem). Don't worry if it's not clear what is 
+							going on and why we chose these functions for this demo. Just observe that you are able to change certain quatities
+							that represent a <strong>choice</strong> or decision on your part, and you can see the result of your choice in some sense.</p>
+						</div>
+						
+						<button class="navBtn" id="btnPrev" onclick="goPrev()">
+						&lt; Prev
+						</button>
+						
+						<button class="navBtn" id="btnNext" onclick="goNext()">
+						Next &gt;
+						</button>
+						<br>
+						<a href="..\Module-2 Linear Equations Review\Linear Equations Review.html">
+							<button class="navBtn" id="btnNxtMod">
+								Module 2 &gt;&gt;
+							</button>
+						</a>
+						
+		</div>
+	</div>
+</div>
+</body>
+</html>
