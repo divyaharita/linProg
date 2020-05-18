@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+<head>
+<title>Linear Equations Review</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>   <!-- Chart JS -->
+
+<link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet"> 
+
+<link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="Inequalities.css" />
+
+
+
+<script src='Inequalities_init.js'> </script>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid" >
+	<div class="row">
+		<div class="col-5" id="divUI">
+				
+				<h4>Calories per <span style="background-color: yellow; font-size: 28pt; font-weight: bold;">A</span>pple (A) <span id="numApples"></span></h4>
+				<div class="sliderBox col-12">
+							<div id="slider"></div>
+							<h4 id="otherSourcesH4">Plus Other Sources : <strong style="background-color: yellow;">200 calories</strong> --&gt; 
+							<strong style="color: blue;">Intercept</strong></h4>
+				</div>			
+
+				<div style="display: none;">
+							a = <input type="text" value="6" size="4" id="val_a" onchange="set_a()">
+				</div>
+				
+				<h4 id="bananasHead" >Calories per <span style="background-color: yellow; font-size: 28pt; font-weight: bold;">B</span>anana (B):<span id="numBananas"></span></h4>
+					
+				<div id="bananaSliderBox" class="sliderBox col-12" >	
+					<div id="slider1"></div>
+				</div>
+
+				<div class="row">
+						<div id="minCalsDiv" class="col-12">
+								<h4 id="minCaloriesH4" >  <span id="minCalsTitleSpan">Min Calories Needed :</span>
+									<span id="minCaloriesSpan">500</span><span id="val_c" style="display:none"></span>
+								</h4>
+						
+								<div id="minSliderBox" class="sliderBox " >
+									<div id="slider2"></div>
+								</div>
+						</div>
+						
+						<div id="maxCalsDiv" class="col-6" style="display: none;">
+								<h4 id="maxCaloriesH4" >Max Cals :
+									<span id="maxCaloriesSpan">600</span><span id="val_d" style="display:none"></span>
+								</h4>
+						
+								<div id="maxSliderBox" class="sliderBox " >
+									<div id="slider3"></div>
+								</div>
+						</div>
+				</div>
+
+				
+				<div style="margin-left: 2em; display: none; font-size: 20pt;">
+				 <div > b = <input type="text" value="4" size="4" id="val_b" onchange="set_b()"> </div>
+
+				</div>
+					<div class="canvasBox">
+						<canvas id="myCanvas"></canvas>
+					</div>
+
+
+		</div>
+		
+		<div class="col" id="divText">
+					
+					<h4 id="moduleH4">Module 3</h4>
+					
+					<h2 id="h2TextHead">
+					<span class=sectionNumber>3</span> Inequalities
+					</h2>
+					
+					<div id="tabStrip">
+						<span id="tab1" class="tab activeTab" onclick="goTab(this,1)">1</span> 
+						<span id="tab2" class="tab inactiveTab" onclick="goTab(this,2)">2</span> 
+						<span id="tab3" class="tab inactiveTab" onclick="goTab(this,3)">3</span>
+						<span id="tab4" class="tab inactiveTab" onclick="goTab(this,4)">4</span>
+						<span id="tab5" class="tab inactiveTab" onclick="goTab(this,5)">5</span>
+					</div>
+					
+									
+						<div id="stuff1" class="stuffDiv activeStuff">
+						<h3 class="stuffH3"><span class="sectionNumber">3.1</span>"Less than" and "Greater than" : A Quick Review</h3>
+							<p class="stuff">We have been focusing on points that lie exactly <strong>on</strong> a given line. These are points 
+							that satisfy the corresponding linear equation <strong>(equality)</strong>.</p>
+							
+							<p class="stuff">In linear programming, we often need to ask questions like this : What do I need to do 
+							if I want my manufacturing cost to be <strong>less than</strong> Rs. 1000 per unit? What do I need to do if 
+							I need to get <strong>more than</strong> 400 calories from eating apples and bananas, but I also want to make
+							sure that I get <strong>less than</strong> 600 calories?</p>
+							<p class = "stuff">These are examples of <strong>inequalites</strong> based on linear equations. Obviously,
+							if we move off the line, we are saying that the LHS of the equation is now <strong>different</strong> from
+							the RHS. Points on the line satisfy the equality, but points lying anywhere in the area above / below the 
+							line will satisfy the inequalities.
+							</p>
+							<p class = "stuff">Look at the graph and think for a moment. Which area contains points where we get <strong>
+							more than</strong> 500 calories? Which area contains points where we get <strong>less than</strong> 500 calories?</p>
+							
+							<p class="stuff"></p>
+							
+							<p class="stuff"></p>
+							
+						</div>
+
+						<div id="stuff2" class="stuffDiv inactiveStuff">
+						<h3 class="stuffH3"><span class="sectionNumber">2.2</span> Line with Positive Intercept</h3>
+								<p class="stuff">Now let us assume that we are getting some calories from some other sources as well. Say we are going to get 
+								200 calories from other sources <strong>besides</strong> apples. So even if we don't eat any apples, we still get 200 calories anyway -- and 
+								then we get more extra calories depending on the number of apples.</p>
+								
+								<p class="stuff">With this extra assumption, we can see that the line has an <strong>intercept</strong> of 
+								200 calories. Its equation can be writtan as:</p>
+								
+								<p class="equation">Y = A X + S </p>
+							    
+								<p class="stuff"> whrere <span class="equation">A</span> and <span class="equation">S</span> represent calories
+								from apples and from other sources respectively.</p>
+								
+								
+												
+						</div>
+						
+						<div id="stuff3" class="stuffDiv inactiveStuff">
+						<h3 class="stuffH3"><span class="sectionNumber">2.3</span> Another form of the Linear Equation</h3>
+						
+						<p class="stuff">We have just seen a simple and common form of writing a linear equation. But in our
+						study of Linear Programming, we will usually write the linear equation in a different way. Let's introduce
+						that other form by considering an example where we look at the calories that we get by eating apples <strong>and</strong> bananas.</p>
+												
+										<p class="stuff">Assume that we get 50 calories per apple and 90 calories per banana. We call these
+										numbers <span class="equation">A</span> and <span class="equation">B</span> respectively.</p>
+										<p class="stuff">Also, assume that we decide to eat <span class="equation">X</span> apples and <span class="equation">Y</span> bananas. How many calories would we get? Obviously, the total calories will be</p>
+										<p class="equation">Calories = A * X    +    B * Y</p>
+										<p class="stuff">Assume that we want to eat apples and bananas in such a quantity that we get <strong>exactly
+										500 calories</strong> in total. In that case our equation becomes:</p>
+										
+										<p class="equation">500 = A * X  &nbsp;&nbsp; + &nbsp;&nbsp;  B * Y </p>
+										<p class="stuff">which becomes
+										<p	class="equation">50 * X  &nbsp;&nbsp; +  &nbsp;&nbsp; 90 * Y &nbsp;&nbsp;=&nbsp;&nbsp;500</p>
+										
+										<p class="stuff">... which is shown in the chart as default. Try answering these questions
+										by looking at the graph, assuming we need exactly <strong style="background-color:#bff1c7;">500 calories</strong>:</p>
+										<ul class="stuff" >
+											<li>If we don't eat any apples, how many bananas do we need to eat?</li>
+											<li>If we don't eat any bananas, how many apples are needed? </li>
+											<li>If we eat 3 apples, how many bananas do we need?</li>
+											<li>If we eat 2 bananas, how many apples do we need?</li>
+										
+										</ul>
+												
+						<p class="stuff"></p>
+												
+						<p class="stuff"></p>
+						
+						</div>
+						
+						<div id="stuff4" class="stuffDiv inactiveStuff">
+							<h3 class="stuffH3"><span class="sectionNumber">2.4</span> Modifying the Calories Equation</h3>
+							<p class="stuff">Up to this point we assumed that apples contain 50 calories and bananas contain 90 
+											calories. What if we change these assumptions, while keeping the requrement fixed at 
+											  500 calories? Let's try that now. Move the "Calories per Apple" slider from 50 to 
+											  <span style="background-color:yellow; font-weight: bold; color: blue;">70</span>.</p>
+							
+							<p class="stuff">Observe how the graph changes when you go from 50 to 70 calories per apple and back again. How
+											would you explain this change? Think for a moment and then click here: 
+											<button type="button" class="navBtn" onclick="showAnswer(1)">
+												Show answer
+											</button></p>
+							<p class="stuff answer" id="answer1">As the number of calories per apple increases, the number of apples required
+							                        for getting total of 500 calories, decreases. This applies also to the case
+													where we eat no bananas at all (i.e. where all our calories come from apples).
+													But that case is nothing but the X-intercept. Hence the X-intercept decreases if 
+													we get more calories per apple. The intercept is, in fact, inversely proportional
+													to the calories per apple.</p>
+							
+							
+							<p class="stuff">Similarly, try changing the "Calories per Banana" from 90 to 120. How would you 
+											describe the changes that you see? How would you explain the reason for this?</p>
+						</div>
+						
+						
+						<div id="stuff5" class="stuffDiv inactiveStuff">
+							<h3 class="stuffH3"><span  class="sectionNumber">2.5</span>Need More or Less Calories?</h3>
+							<p class="stuff">Up to this point, we assumed that we always need 500 calories per week. 
+							Now we want to change that assumption, so we have added a new slider to set how many 
+							calories we want to get from eating apples and bananas.</p>
+							
+							<p class="stuff">Think for a moment: if we change the required calories from 500 to 300, 
+											what change will happen to the graph?
+											
+											For example, what will happen to the X and Y intercepts?</p>
+											<ul class="stuff">
+											<li>Both will increase</li>
+											<li>Both will decrease</li>
+											<li>One will increase, the other will decrease. --> Guess which ones.
+											</ul>
+											
+							<p class="stuff">After you guess the answers,
+											try moving the new calories slider from 500 to 300. Did you guess right? Try to
+											explain this change in terms of the equation of the line (review Tab 3 if you need to).</p>
+						
+						</div>
+						
+						<button class="navBtn" id="btnPrev" onclick="goPrev()">
+						&lt; Prev
+						</button>
+						
+						<button class="navBtn" id="btnNext" onclick="goNext()">
+						Next &gt;
+						</button>
+						<br>
+						<a href="..\Module-2-Linear-Equations-Review\Linear-Equations-Review.html">
+							<button class="navBtn" id="btnNxtMod">
+							&lt;&lt;	Module 2 
+							</button>
+						</a>
+						
+			<a href='underConstruction.html'>			
+			<button class="navBtn" id="btnNxtMod">
+								Module 4 &gt;&gt;
+			</button>
+			</a>			
+		</div>
+	</div>
+</div>
+
+
+					<script src='Inequalities_events.js'></script>
+
+</body>
+</html>
