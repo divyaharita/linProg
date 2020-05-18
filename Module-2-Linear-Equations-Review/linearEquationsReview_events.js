@@ -177,6 +177,12 @@ var myData
 								myPoint.y =  (500 - a * i)/ b 
 								break;
 								
+								case 5:
+								
+								myPoint.y =  ($("#val_c").val() - a * i)/ b 
+								break;
+								
+								
 								default:
 								myPoint.y = a * i + otherCals
 								break;
@@ -201,6 +207,7 @@ var myData
 
 	$("#val_a").val(50)
 	$("#val_b").val(90)
+	$("#val_c").val(500)
 	a=$("#val_a").val()
 	b=$("#val_b").val()
 					
@@ -241,7 +248,7 @@ var myData
 				else
 				{$("#btnPrev").css("display","inline")}
 			
-			if(tn>=4)
+			if(tn>=5)   // last tab --> no next tab
 			{$("#btnNext").css("display","none")}
 			else 
 			{$("#btnNext").css("display","inline")}
@@ -259,6 +266,7 @@ var myData
 						ccc.options.scales.yAxes[0].ticks.max=800
 						
 						$("#totalCaloriesH4").hide()
+						$("#caloriesSliderBox").hide(500);
 						
 					}
 			if(tn==1){otherCals=0
@@ -272,6 +280,7 @@ var myData
 						ccc.options.scales.yAxes[0].ticks.max=800
 						
 						$("#totalCaloriesH4").hide()
+						$("#caloriesSliderBox").hide(500);
 						
 						}
 			
@@ -297,6 +306,7 @@ var myData
 							ccc.options.scales.yAxes[0].ticks.max=10
 							
 							$("#totalCaloriesH4").show()
+							$("#caloriesSliderBox").hide(500);
 							
 							
 						}
@@ -321,6 +331,28 @@ var myData
 							ccc.options.scales.yAxes[0].ticks.max=10
 							
 							$("#totalCaloriesH4").show()
+							$("#caloriesSliderBox").hide(500);
+						}
+						
+			if (tn==5)
+						{	$("#bananaSliderBox").show(1000)
+							$("#bananasHead").show(1000)
+							$("#caloriesSliderBox").show(500);
+							$("#otherSourcesH4").hide(1000)
+							$("#totalCaloriesH4").show()
+							
+														$("#val_a").val(50)
+							$("#slider").slider("value",50)
+							$("#numApples").text(50)
+							
+							$("#val_b").val(90)
+							$("#slider1").slider("value",90)
+							$("#numApples").text(90)
+							
+							ccc.options.scales.yAxes[0].scaleLabel.labelString="Bananas per Week (Y) "
+							ccc.options.scales.xAxes[0].scaleLabel.labelString="Apples per Week (X) "
+							
+							ccc.options.scales.yAxes[0].ticks.max=10
 						}
 			
 			makeChart()

@@ -54,8 +54,12 @@
 				</div>
 
 				<h4 id="totalCaloriesH4" style="display:none"><span style="color: #a26851;"><u>Assuming</u> :</span> Total Calories Needed =
-					<span id="totalCaloriesSpan">500</span>
+					<span id="totalCaloriesSpan">500</span><span id="val_c" style="display:none"></span>
 				</h4>
+				
+				<div id="caloriesSliderBox" class="sliderBox" style="display:none;">
+					<div id="slider2"></div>
+				</div>
 				
 				<div style="margin-left: 2em; font-size: 20pt;">
 				 <div style="display: none;"> b = <input type="text" value="4" size="4" id="val_b" onchange="set_b()"> </div>
@@ -81,11 +85,12 @@
 						<span id="tab2" class="tab inactiveTab" onclick="goTab(this,2)">2</span> 
 						<span id="tab3" class="tab inactiveTab" onclick="goTab(this,3)">3</span>
 						<span id="tab4" class="tab inactiveTab" onclick="goTab(this,4)">4</span>
+						<span id="tab5" class="tab inactiveTab" onclick="goTab(this,5)">5</span>
 					</div>
 					
 									
 						<div id="stuff1" class="stuffDiv activeStuff">
-						<h3 class="stuffH3"><span class=sectionNumber>2.1</span> The Simplest Linear Equation!</h3>
+						<h3 class="stuffH3"><span class="sectionNumber">2.1</span> The Simplest Linear Equation!</h3>
 							<p class="stuff">We're going to assume that you have already studied <strong>linear equations</strong>, but we will quickily 
 											review what they are and look at some of their properties.</p>
 							
@@ -103,7 +108,7 @@
 						</div>
 
 						<div id="stuff2" class="stuffDiv inactiveStuff">
-						<h3 class="stuffH3"><span class=sectionNumber>2.2</span> Line with Positive Intercept</h3>
+						<h3 class="stuffH3"><span class="sectionNumber">2.2</span> Line with Positive Intercept</h3>
 								<p class="stuff">Now let us assume that we are getting some calories from some other sources as well. Say we are going to get 
 								200 calories from other sources <strong>besides</strong> apples. So even if we don't eat any apples, we still get 200 calories anyway -- and 
 								then we get more extra calories depending on the number of apples.</p>
@@ -121,7 +126,7 @@
 						</div>
 						
 						<div id="stuff3" class="stuffDiv inactiveStuff">
-						<h3 class="stuffH3"><span class=sectionNumber>2.3</span> Another form of the Linear Equation</h3>
+						<h3 class="stuffH3"><span class="sectionNumber">2.3</span> Another form of the Linear Equation</h3>
 						
 						<p class="stuff">We have just seen a simple and common form of writing a linear equation. But in our
 						study of Linear Programming, we will usually write the linear equation in a different way. Let's introduce
@@ -155,7 +160,7 @@
 						</div>
 						
 						<div id="stuff4" class="stuffDiv inactiveStuff">
-							<h3 class="stuffH3"><span class=sectionNumber>2.4</span> Modifying the Calories Equation</h3>
+							<h3 class="stuffH3"><span class="sectionNumber">2.4</span> Modifying the Calories Equation</h3>
 							<p class="stuff">Up to this point we assumed that apples contain 50 calories and bananas contain 90 
 											calories. What if we change these assumptions, while keeping the requrement fixed at 
 											  500 calories? Let's try that now. Move the "Calories per Apple" slider from 50 to 
@@ -178,6 +183,29 @@
 											describe the changes that you see? How would you explain the reason for this?</p>
 						</div>
 						
+						
+						<div id="stuff5" class="stuffDiv inactiveStuff">
+							<h3 class="stuffH3"><span  class="sectionNumber">2.5</span>Need More or Less Calories?</h3>
+							<p class="stuff">Up to this point, we assumed that we always need 500 calories per week. 
+							Now we want to change that assumption, so we have added a new slider to set how many 
+							calories we want to get from eating apples and bananas.</p>
+							
+							<p class="stuff">Think for a moment: if we change the required calories from 500 to 300, 
+											what change will happen to the graph?
+											
+											For example, what will happen to the X and Y intercepts?</p>
+											<ul class="stuff">
+											<li>Both will increase</li>
+											<li>Both will decrease</li>
+											<li>One will increase, the other will decrease. --> Guess which ones.
+											</ul>
+											
+							<p class="stuff">After you guess the answers,
+											try moving the new calories slider from 500 to 300. Did you guess right? Try to
+											explain this change in terms of the equation of the line (review Tab 3 if you need to).</p>
+						
+						</div>
+						
 						<button class="navBtn" id="btnPrev" onclick="goPrev()">
 						&lt; Prev
 						</button>
@@ -192,7 +220,7 @@
 							</button>
 						</a>
 						
-			<a href='underConstruction.html'>			
+			<a href='../Module-3-Inequalities/Inequalities.html'>			
 			<button class="navBtn" id="btnNxtMod">
 								Module 3 &gt;&gt;
 			</button>
