@@ -150,21 +150,35 @@
 												if we eat at least 400 calories, but not less than 400.</p>
 												<p class="stuff">These two "constraints" or "conditions" give us these two equations:
 												
-								<p class="equation">A * X + B * Y &gt; 400</p>
-								<p class="equation">A * X + B * Y &lt; 600</p>
+								<p class="equation">A * X + B * Y &gt; 400 &nbsp;&nbsp; 
+									<span class="stuff">(the violet line in the graph)</span></p>
+								<p class="equation">A * X + B * Y &lt; 600 &nbsp;&nbsp; 
+									<span class="stuff">(the green line)</span></p>
 								
-								<p class="stuff"></p>
+								<p class="stuff">Clearly, the shaded region between the two lines is the set of points where
+												the number of calories is &gt;400 as well as &lt;600. Any choice of 
+												<span class="equation">X</span> and <span class="equation">Y</span> from 
+												within this region, will satisfy <strong>both</strong> of the above equations. This
+												area is, in fact, <strong>bounded</strong> by the X axis, the violet line, the Y axis
+												and the green line.</p>
+												
+								<p class="stuff">We say that this region is the <strong><u>"feasible region"</u></strong> for our
+												problem, given the two constraints that we have here.</p>
 								
 								
 												
 						</div>
 						
 						<div id="stuff3" class="stuffDiv inactiveStuff">
-						<h3 class="stuffH3"><span class="sectionNumber">3.3</span> Under const.</h3>
+						<h3 class="stuffH3"><span class="sectionNumber">3.3</span>A situation that has NO Solution!</h3>
 						
-						<p class="stuff"></p>
+						<p class="stuff">Now move the "Minimum calories" slider to 750. What does this setting mean,
+										in words? We are saying that we want to consume more than 750 <strong>AND</strong> less
+										than 600 calories. Obviously, we are asking for an impossible result. This 
+										is shown by the red shading in the in-between area.</p>
 												
-										<p class="stuff"></p>
+										<p class="stuff">So in linear programming, we may run into problems that 
+										have no solution -- where there is <strong>no feasible region</strong>.</p>
 										<p class="stuff"></p>
 										
 												
@@ -173,10 +187,85 @@
 						</div>
 						
 						<div id="stuff4" class="stuffDiv inactiveStuff">
-							<h3 class="stuffH3"><span class="sectionNumber">3.4</span>Under Const.</h3>
-							<p class="stuff"></p>
+							<h3 class="stuffH3"><span class="sectionNumber">3.4</span>All Good Things come at a <u>COST</u> !</h3>
+							<p class="stuff">Okay, so now we know that if we eat, say for example, 3 apples and 4 bananas, we will get
+							about 510 calories. And this is well within the "feasible region", i.e. it satisfies our 
+							constraints (requirements/conditions) quite nicely. This point (3 apples, 4 bananas) is shown in the chart using
+							a <strong>red star (<span style="color: red; font-size: 16pt;">&nbsp;*&nbsp;</span>)</strong> marker.</p>
 							
+							<p class="stuff">That's all well and good, you say --- but apples and bananas cost <strong>money!</strong> And everyone wants
+									to plan their spending in such a way that they live healthy while saving money at 
+									the same time. So it's time to bring the <strong>price factor</strong> into our problem at this point.
+									All right, let's say apples cost &nbsp; <strong>&#x20B9;30</strong> &nbsp; each and bananas cost &nbsp; <strong>&#x20B9;5</strong>&nbsp; each.</p>
 							
+							<p class="stuff">Now we are thinking about apples, bananas, their respective calory contents, their
+											prices, AND how much we're going to eat of each fruit. That's a lot of information to keep track of! So let's put everything into
+											a nice table, like this:</p>
+							
+							<div>
+							<table id="tbl">
+								
+								
+								<tr>
+								
+								
+								<td>	</td>
+									<th>Apples</th>
+									<th>Bananas</th>
+									<th>Total</th>
+								
+								</tr>
+								
+								<tr>
+									<th>Calories per fruit</th>
+									<td> 50 </td>
+									<td>90 </td>
+									<td> - </td>
+								</tr>
+								
+								<tr>
+									<th>Price per fruit</th>
+									<td>30 </td>
+									<td>5</td>
+									<td> - </td>
+								</tr>
+								
+								
+								
+								
+								<tr>
+									
+									<th> Qty Eaten </th>
+									<td id="tdQtyA"> 3 </td>
+									<td id="tdQtyB"> 4 </td>
+									<td>-</td>
+									
+								</tr>
+								
+								<tr>
+									<th>Calories </th>
+									<td id = "tdCalA">150 </td>
+									<td id ="tdCalB">360 </td>
+									<td>510 </td>
+								</tr>
+								
+							
+								
+									
+			
+								
+								<tr>
+									<th>Cost </th>
+									<td id = "tdCostA"> 90 </td>
+									<td id = "tdCostB"> 20 </td>
+									<td> 110 </td>
+								</tr>
+																				
+							</table>
+							</div>
+							<br>	
+							<p class="stuff">Now click on any point inside the feasible region.</p>		
+									
 						</div>
 						
 						

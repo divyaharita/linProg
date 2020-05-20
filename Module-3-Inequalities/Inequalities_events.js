@@ -25,7 +25,7 @@
 											hoverBorderColor:'red',
 											pointRadius: 7,
 											pointStyle: "circle",
-											backgroundColor: "#dedef370",
+											backgroundColor: "#c0c0e380",
 											borderColor: "purple",
 											borderWidth: 3,
 											showLine: true,
@@ -44,12 +44,17 @@
 											backgroundColor:"lightblue",
 											pointRadius:7,
 											lineTension:0
-										}
+										},
 								
 								
-							
-											
-										 
+										{ // star marker for clicked point
+											data: [{x:12, y:12}],
+											showLine: false,
+											pointStyle: "star",
+											pointRadius: 12,
+											borderWidth: 3,
+											borderColor: "red"
+										} 
 									]
 						},
 				
@@ -180,11 +185,13 @@ var myData
 								break;
 								
 								case 3:
-								myPoint.y =  (500 - a * i)/ b  
+								myPoint.y =  ($("#val_c").val() - a * i)/ b 
+								myPoint2.y= ($("#val_d").val() - a * i ) / b 
 								break;
 								
 								case 4:
-								myPoint.y =  (500 - a * i)/ b 
+								myPoint.y =  ($("#val_c").val() - a * i)/ b 
+								myPoint2.y= ($("#val_d").val() - a * i ) / b 
 								break;
 								
 								case 5:
@@ -208,7 +215,7 @@ var myData
 				if (myData2[5].y < myData[5].y)
 						{ ccc.data.datasets[0].backgroundColor="#fb9d9d70"}
 						else
-						{ccc.data.datasets[0].backgroundColor="#dedef370"}
+						{ccc.data.datasets[0].backgroundColor="#c0c0e380"}
 				
 				//	console.log("a, b" + a + " , " + b + " : " )
 					ccc.data.datasets[0].data=myData
@@ -291,6 +298,9 @@ var myData
 						
 						$("#maxCalsDiv").hide(700)
 						
+						ccc.data.datasets[2].data[0]={x:12, y:12}	
+						ccc.options.onClick=null
+						
 						}
 			
 			if(tn==2){
@@ -320,55 +330,72 @@ var myData
 						$("#val_d").val('600')
 						$("#slider3").slider("value",600)
 						
+						ccc.data.datasets[2].data[0]={x:12, y:12}	
+						ccc.options.onClick=null
 						
 					}			
 					 
 			if(tn==3) {
-							$("#bananaSliderBox").show(1000)
-							$("#bananasHead").show(1000)
-							$("#otherSourcesH4").hide(1000)
-							
 							$("#val_a").val(50)
 							$("#slider").slider("value",50)
 							$("#numApples").text(50)
 							
 							$("#val_b").val(90)
 							$("#slider1").slider("value",90)
-							$("#numApples").text(90)
-							
-							
-							ccc.options.scales.yAxes[0].scaleLabel.labelString="Bananas per Week (Y) "
-							ccc.options.scales.xAxes[0].scaleLabel.labelString="Apples per Week (X) "
-							
-							ccc.options.scales.yAxes[0].ticks.max=10
-							
-							$("#totalCaloriesH4").show()
-							$("#caloriesSliderBox").hide(500);
-							
+							$("#numBananas").text(90)
+
+
+						$("#minCalsDiv").removeClass("col-12"); 
+						$("#minCalsDiv").addClass("col-6");
+						$("#minCalsTitleSpan").text("Min Cals. :")
+						
+						$("#maxCalsDiv").show(700)
+
+						$("#slider2").slider("value",400)
+						$("#minCaloriesSpan").text("400")
+						$("#val_c").val('400')
+						
+						
+						$("#val_d").val('600')
+						$("#maxCaloriesSpan").text("600")
+						$("#val_d").val('600')
+						$("#slider3").slider("value",600)
+												
+						ccc.data.datasets[2].data[0]={x:12, y:12}	
+						ccc.options.onClick=null
 							
 						}
 						
 			if (tn==4) {
-								$("#bananaSliderBox").show(1000)
-							$("#bananasHead").show(1000)
-							$("#otherSourcesH4").hide(1000)
-							
 							$("#val_a").val(50)
 							$("#slider").slider("value",50)
 							$("#numApples").text(50)
 							
 							$("#val_b").val(90)
 							$("#slider1").slider("value",90)
-							$("#numApples").text(90)
-							
-							
-							ccc.options.scales.yAxes[0].scaleLabel.labelString="Bananas per Week (Y) "
-							ccc.options.scales.xAxes[0].scaleLabel.labelString="Apples per Week (X) "
-							
-							ccc.options.scales.yAxes[0].ticks.max=10
-							
-							$("#totalCaloriesH4").show()
-							$("#caloriesSliderBox").hide(500);
+							$("#numBananas").text(90)
+
+
+						$("#minCalsDiv").removeClass("col-12"); 
+						$("#minCalsDiv").addClass("col-6");
+						$("#minCalsTitleSpan").text("Min Cals. :")
+						
+						$("#maxCalsDiv").show(700)
+
+						$("#slider2").slider("value",400)
+						$("#minCaloriesSpan").text("400")
+						$("#val_c").val('400')
+						
+						
+						$("#val_d").val('600')
+						$("#maxCaloriesSpan").text("600")
+						$("#val_d").val('600')
+						$("#slider3").slider("value",600)
+						
+						ccc.data.datasets[2].data[0]={x:3, y:4}
+						
+						ccc.options.onClick= function(e) {star2Click(e)}
+						
 						}
 						
 			if (tn==5)
@@ -424,4 +451,21 @@ var myData
 	function showAnswer(n)
 	{
 		$("#answer" + n).show(300)
+	}
+	
+	function star2Click(e)
+	{	
+			console.log("click!!" + " " + e.offsetX + " " + e.offsetY); 
+			clkX=ccc.scales["x-axis-1"].getValueForPixel(e.offsetX)
+			clkY=ccc.scales["y-axis-1"].getValueForPixel(e.offsetY)
+			console.log(clkX 
+			+ " " + clkY)
+			
+			ccc.data.datasets[2].data=[{x:clkX, y:clkY}]
+			ccc.update()
+			
+			$("#tdQtyA").text(clkX.toFixed(1))
+			$("#tdQtyB").text(clkY.toFixed(1))
+			
+									
 	}
