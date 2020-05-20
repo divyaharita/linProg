@@ -73,9 +73,9 @@
 							$("#handle3").html("<strong style='font-size:14pt;'>&lt;</strong>")							
 							
 							$("#set_a").text("50")
-							$("#set_b").text("4")
+							$("#set_b").text("90")
 							
 							$("#numApples").text("50")
-							$("#numBananas").text("4")
+							$("#numBananas").text("90")
 					}
 	);

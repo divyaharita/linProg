@@ -25,12 +25,12 @@
 											hoverBorderColor:'red',
 											pointRadius: 7,
 											pointStyle: "circle",
-											backgroundColor: "lightblue",
+											backgroundColor: "#dedef370",
 											borderColor: "purple",
 											borderWidth: 3,
 											showLine: true,
 											lineTension: 0,
-											fill: false
+											fill: "+1"
 										},
 							
 										
@@ -38,9 +38,12 @@
 										    label:".", 
 											data: [ { x:1, y: 1},{ x:8, y:25}], 
 											borderWidth:3,
-											showLine:false,
+											showLine: true,
 											fill: false,
-											borderColor:"green"
+											borderColor:"#124a1d",
+											backgroundColor:"lightblue",
+											pointRadius:7,
+											lineTension:0
 										}
 								
 								
@@ -155,8 +158,11 @@ var myData
 					
 					for (i=0; i<12; i++)
 						{	
-							myPoint ={}
+							myPoint ={}  // Point for first line -- datasets[0]
+							myPoint2={}   // Point for second line -- datasets[1]
+							
 							myPoint.x = i*1.0
+							myPoint2.x = i*1.0
 							
 							
 							
@@ -167,6 +173,10 @@ var myData
 								
 								case 2:
 								myPoint.y =  ($("#val_c").val() - a * i)/ b 
+								myPoint2.y= ($("#val_d").val() - a * i ) / b 
+								
+															
+								
 								break;
 								
 								case 3:
@@ -188,15 +198,17 @@ var myData
 								break;
 								
 							}
-							
-							
-							myData.push(myPoint)
+			
+							myData.push(myPoint);
+							myData2.push (myPoint2)
 							
 							//console.log("i,a,b "+i+" " + a + " " + b + " " + myPoint.y)
-							
 						}
 						
-					myData2 = [{x:0, y:-1}]	
+				if (myData2[5].y < myData[5].y)
+						{ ccc.data.datasets[0].backgroundColor="#fb9d9d70"}
+						else
+						{ccc.data.datasets[0].backgroundColor="#dedef370"}
 				
 				//	console.log("a, b" + a + " , " + b + " : " )
 					ccc.data.datasets[0].data=myData
@@ -256,33 +268,17 @@ var myData
 			}
 			
 			
-			if(tn==2){	$("#minCalsDiv").removeClass("col-12"); 
-						$("#minCalsDiv").addClass("col-6");
-						$("#minCalsTitleSpan").text("Min Cals. :")
-						
-						$("#maxCalsDiv").show(700)
-						
-						$("#slider2").slider("value",400)
-						$("#val_c").val('400')
-						$("#val_d").val('600')
-						$("#minCaloriesSpan").text("400")
 
-						
-					}
 			if(tn==1){
-						$("#bananaSliderBox").show(1000)
-							$("#bananasHead").show(1000)
-							$("#caloriesSliderBox").show(500);
-							$("#otherSourcesH4").hide(1000)
-							$("#totalCaloriesH4").show()
+						
 							
-														$("#val_a").val(50)
+							$("#val_a").val(50)
 							$("#slider").slider("value",50)
 							$("#numApples").text(50)
 							
 							$("#val_b").val(90)
 							$("#slider1").slider("value",90)
-							$("#numApples").text(90)
+							$("#numBananas").text(90)
 							
 							ccc.options.scales.yAxes[0].scaleLabel.labelString="Bananas per Week (Y) "
 							ccc.options.scales.xAxes[0].scaleLabel.labelString="Apples per Week (X) "
@@ -297,7 +293,35 @@ var myData
 						
 						}
 			
-			
+			if(tn==2){
+
+							$("#val_a").val(50)
+							$("#slider").slider("value",50)
+							$("#numApples").text(50)
+							
+							$("#val_b").val(90)
+							$("#slider1").slider("value",90)
+							$("#numBananas").text(90)
+
+
+						$("#minCalsDiv").removeClass("col-12"); 
+						$("#minCalsDiv").addClass("col-6");
+						$("#minCalsTitleSpan").text("Min Cals. :")
+						
+						$("#maxCalsDiv").show(700)
+
+						$("#slider2").slider("value",400)
+						$("#minCaloriesSpan").text("400")
+						$("#val_c").val('400')
+						
+						
+						$("#val_d").val('600')
+						$("#maxCaloriesSpan").text("600")
+						$("#val_d").val('600')
+						$("#slider3").slider("value",600)
+						
+						
+					}			
 					 
 			if(tn==3) {
 							$("#bananaSliderBox").show(1000)
