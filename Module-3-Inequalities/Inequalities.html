@@ -92,7 +92,7 @@
 					<h4 id="moduleH4">Module 3</h4>
 					
 					<h2 id="h2TextHead">
-					<span class=sectionNumber>3</span> Inequalities
+					<span class=sectionNumber>3</span> Inequalities and Constraints
 					</h2>
 					
 					<div id="tabStrip">
@@ -109,10 +109,13 @@
 							<p class="stuff">We have been focusing on points that lie exactly <strong>on</strong> a given line. These are points 
 							that satisfy the corresponding linear equation <strong>(equality)</strong>.</p>
 							
-							<p class="stuff">In linear programming, we often need to ask questions like this : What do I need to do 
-							if I want my manufacturing cost to be <strong>less than</strong> Rs. 1000 per unit? What do I need to do if 
-							I need to get <strong>more than</strong> 400 calories from eating apples and bananas, but I also want to make
-							sure that I get <strong>less than</strong> 600 calories?</p>
+							<p class="stuff">In linear programming, we often need to ask questions like this : </p>
+							
+							<ul class="stuff">
+								<li>What do I need to do if I want my manufacturing cost to be <strong>less than</strong> Rs. 1000 per unit?</li>
+								<li>What do I need to do if I need to get <strong>more than</strong> 400 calories from eating apples and bananas, but I also want to make
+								sure that I get <strong>less than</strong> 600 calories?</li>
+							</ul>
 							<p class = "stuff">These are examples of <strong>inequalites</strong> based on linear equations. Obviously,
 							if we move off the line, we are saying that the LHS of the equation is now <strong>different</strong> from
 							the RHS. Points on the line satisfy the equality, but points lying anywhere in the area above / below the 
@@ -121,25 +124,36 @@
 							<p class = "stuff">Look at the graph and think for a moment. Which area contains points where we get <strong>
 							more than</strong> 500 calories? Which area contains points where we get <strong>less than</strong> 500 calories?</p>
 							
-							<p class="stuff"></p>
+							<p class="stuff">Now move the "Minimum Cals" slider slowly from one end to the other and watch the movement of the line.
+											You may	notice one <strong>important</strong> property of the line's movement that really stands
+											out very clearly.</p>
+											
+							<p class="stuff">What do you think this important property of the line's behaviour is? <button class="navBtn" onclick="showAnswer(1)">Show Answer</button></p>			
 							
-							<p class="stuff"></p>
+							<ul id="answer1" class="stuff" style="display: none;">
+								<li>The line moves <strong>parallel to itself,</strong> i.e. its <strong>slope remains constant.</strong></li>
+								&nbsp;&nbsp;(This fact will be important as we go further).
+							</ul>
 							
 						</div>
 
 						<div id="stuff2" class="stuffDiv inactiveStuff">
-						<h3 class="stuffH3"><span class="sectionNumber">2.2</span> Line with Positive Intercept</h3>
-								<p class="stuff">Now let us assume that we are getting some calories from some other sources as well. Say we are going to get 
-								200 calories from other sources <strong>besides</strong> apples. So even if we don't eat any apples, we still get 200 calories anyway -- and 
-								then we get more extra calories depending on the number of apples.</p>
+						<h3 class="stuffH3"><span class="sectionNumber">3.2</span>Meeting More Than One Condition (Multiple Constraints)</h3>
+								<p class="stuff">In the previous tab (3.1) we learned how to identify areas that satisfy a single constraint
+												or condition, e.g. <strong>"calories must be greater than 500"</strong>. It's quite simple -- we just 
+												consider the area above the line (for &gt;) or below the line (for &lt;).</p>
 								
-								<p class="stuff">With this extra assumption, we can see that the line has an <strong>intercept</strong> of 
-								200 calories. Its equation can be writtan as:</p>
+								<p class="stuff">But in real world situations, we often need to find an optimal solution that 
+												will satisfy <strong>multiple constraints.</strong> In our example of 500 calories, suppose we find
+												that eating <strong>too many</strong> calories can be <strong>as bad</strong> as not getting <strong>enough</strong>
+												calories. Let's say we need to make sure we don't eat more than 600 calories. Also, let's say we are OK
+												if we eat at least 400 calories, but not less than 400.</p>
+												<p class="stuff">These two "constraints" or "conditions" give us these two equations:
+												
+								<p class="equation">A * X + B * Y &gt; 400</p>
+								<p class="equation">A * X + B * Y &lt; 600</p>
 								
-								<p class="equation">Y = A X + S </p>
-							    
-								<p class="stuff"> whrere <span class="equation">A</span> and <span class="equation">S</span> represent calories
-								from apples and from other sources respectively.</p>
+								<p class="stuff"></p>
 								
 								
 												
