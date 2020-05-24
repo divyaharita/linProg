@@ -489,7 +489,13 @@ var myData
 			$("#tdCalsPerApple").text(   $("#numApples").text()  )
 			$("#tdCalsPerBanana").text(   $("#numBananas").text()  )
 			
-			$("#tdTotalCals").text(   1.0*$("#tdCalA").text() + 1.0* $("#tdCalB").text()  )
+			$("#tdTotalCals").text(   (1.0*$("#tdCalA").text() + 1.0* $("#tdCalB").text()).toFixed(1)  )
+			
+			$("#tdCostA").text  (    ( 1.0*$("#tdRateA").text() * aplz ).toFixed(1))
+			$("#tdCostB").text  (    ( 1.0*$("#tdRateB").text() * bananz ).toFixed(1) )
+			
+			$("#tdTotalCost").text ( 1.0* $("#tdCostA").text() + 1.0*$("#tdCostB").text()  )
+			
 			
 			 if (    1.0*$("#tdTotalCals").text() < 1.0*$("#minCaloriesSpan").text()
 				 ||  1.0*$("#tdTotalCals").text() > 1.0*$("#maxCaloriesSpan").text() 
