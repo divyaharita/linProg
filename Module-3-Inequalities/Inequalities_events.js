@@ -212,16 +212,23 @@ var myData
 							//console.log("i,a,b "+i+" " + a + " " + b + " " + myPoint.y)
 						}
 						
-				if (myData2[5].y < myData[5].y)
-						{ ccc.data.datasets[0].backgroundColor="#fb9d9d70"}
-						else
-						{ccc.data.datasets[0].backgroundColor="#c0c0e380"}
+							if (myData2[5].y < myData[5].y)
+												{ ccc.data.datasets[0].backgroundColor="#fb9d9d70"}
+												else
+												{ccc.data.datasets[0].backgroundColor="#c0c0e380"}
+							
+						//	console.log("a, b" + a + " , " + b + " : " )
+							ccc.data.datasets[0].data=myData
+							ccc.data.datasets[1].data=myData2 
+							ccc.update()
+							
+							if (currentTab==4)
+							{
+								updateTable()
+								
+							}
+						}
 				
-				//	console.log("a, b" + a + " , " + b + " : " )
-					ccc.data.datasets[0].data=myData
-					ccc.data.datasets[1].data=myData2 
-					ccc.update()
-				}
 	
 
 	$("#val_a").val(50)
@@ -453,6 +460,8 @@ var myData
 		$("#answer" + n).show(300)
 	}
 	
+	var aplz=3; var bananz=4;
+	
 	function star2Click(e)
 	{	
 			console.log("click!!" + " " + e.offsetX + " " + e.offsetY); 
@@ -464,8 +473,37 @@ var myData
 			ccc.data.datasets[2].data=[{x:clkX, y:clkY}]
 			ccc.update()
 			
-			$("#tdQtyA").text(clkX.toFixed(1))
-			$("#tdQtyB").text(clkY.toFixed(1))
+			aplz=clkX.toFixed(1); bananz=clkY.toFixed(1)
 			
-									
+			updateTable()
 	}
+	
+	function updateTable()
+		{
+			$("#tdQtyA").text(aplz)
+			$("#tdQtyB").text(bananz)
+			
+			$("#tdCalA").text(	(aplz*a).toFixed(0))
+			$("#tdCalB").text( (bananz * b).toFixed(0))
+			
+			$("#tdCalsPerApple").text(   $("#numApples").text()  )
+			$("#tdCalsPerBanana").text(   $("#numBananas").text()  )
+			
+			$("#tdTotalCals").text(   1.0*$("#tdCalA").text() + 1.0* $("#tdCalB").text()  )
+			
+			 if (    1.0*$("#tdTotalCals").text() < 1.0*$("#minCaloriesSpan").text()
+				 ||  1.0*$("#tdTotalCals").text() > 1.0*$("#maxCaloriesSpan").text() 
+			    )
+					 {
+						   $("#tdTotalCals").css("background-color", "#f4d0d0")
+						   $("#tdTotalCals").css("color","red")
+						   $("#thCalories").css("background-color","#f4d0d0")
+					 }
+					    else
+					 {
+							$("#tdTotalCals").css("background-color", "##bbe1bb")
+							$("#tdTotalCals").css("color","black")
+							$("#thCalories").css("background-color","#e0e0f3")
+					 }
+			
+		}
