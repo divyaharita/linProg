@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+<head>
+<title>Graphical Solution</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>   <!-- Chart JS -->
+
+<link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet"> 
+
+<link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="GraphicalSolution.css" />
+
+
+
+<script src='GraphicalSolution_init.js'> </script>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+
+
+</head>
+
+<body >
+
+
+<div class="container-fluid" >
+	<div class="row">
+		<div class="col-5" id="divUI">
+				
+				<h4>Cost per <span style="background-color: yellow; font-size: 28pt; font-weight: bold;">A</span>pple <span id="numApples"></span></h4>
+				<div class="sliderBox col-12">
+							<div id="slider"></div>
+							<h4 id="otherSourcesH4">Plus Other Sources : <strong style="background-color: yellow;">200 calories</strong> --&gt; 
+							<strong style="color: blue;">Intercept</strong></h4>
+				</div>			
+
+				<div style="display: none;">
+							a = <input type="text" value="6" size="4" id="val_a" onchange="set_a()">
+				</div>
+				
+				<h4 id="bananasHead" >Cost per <span style="background-color: yellow; font-size: 28pt; font-weight: bold;">B</span>anana :<span id="numBananas">90</span></h4>
+					
+				<div id="bananaSliderBox" class="sliderBox col-12" >	
+					<div id="slider1"></div>
+				</div>
+
+				<div class="row">
+						<div id="minCalsDiv" class="col-12">
+								<h4 id="minCaloriesH4" >  <span id="minCalsTitleSpan">Total Cost : &#8377;</span>
+									<span id="minCaloriesSpan">500</span><span id="val_c" style="display:none"></span>
+								</h4>
+						
+								<div id="minSliderBox" class="sliderBox " >
+									<div id="slider2"></div>
+								</div>
+						</div>
+						
+						<div id="maxCalsDiv" class="col-6" style="display: none;">
+								<h4 id="maxCaloriesH4" >Max Cals :
+									<span id="maxCaloriesSpan">600</span><span id="val_d" style="display:none"></span>
+								</h4>
+						
+								<div id="maxSliderBox" class="sliderBox " >
+									<div id="slider3"></div>
+								</div>
+						</div>
+				</div>
+
+				
+				<div style="margin-left: 2em; display: none; font-size: 20pt;">
+				 <div > b = <input type="text" value="4" size="4" id="val_b" onchange="set_b()"> </div>
+
+				</div>
+					<div class="canvasBox">
+						<canvas id="myCanvas"></canvas>
+					</div>
+
+
+		</div>
+		
+		<div class="col" id="divText">
+					
+					<h4 id="moduleH4">Module 4</h4>
+					
+					<h2 id="h2TextHead">
+					<span class=sectionNumber>4</span>Graphical Solution
+					</h2>
+					
+					<div id="tabStrip">
+						<span id="tab1" class="tab activeTab" onclick="goTab(this,1)">1</span> 
+						<span id="tab2" class="tab inactiveTab" onclick="goTab(this,2)">2</span> 
+						<span id="tab3" class="tab inactiveTab" onclick="goTab(this,3)">3</span>
+						<span id="tab4" class="tab inactiveTab" onclick="goTab(this,4)">4</span>
+						<span id="tab5" class="tab inactiveTab" onclick="goTab(this,5)">5</span>
+					</div>
+					
+									
+						<div id="stuff1" class="stuffDiv activeStuff">
+						<h3 class="stuffH3"><span class="sectionNumber">4.1</span>The Cost Contour</h3>
+							<p class="stuff">Now we need to look at the cost aspect in a little more detail. In this tab, we won't
+							worry about the calories or any other property of apples and bananas. We will only think about their <strong>costs</strong> in this 
+							tab.
+							</p>
+							
+							<p class="stuff">Let's assume for now that we have a fixed budget of <strong>&#8377;120</strong> per week -- and we want to spend 
+							<strong>exactly</strong> that amount on some apples and some bananas. For example, one simple option is to eat
+							4 apples and no bananas. Or we could take no apples and 8 bananas. In general, once we decide to spend 
+							exactly &#8377;120, then the number of apples and bananas has to satisfy this equation:
+							
+							<p class="equation">
+							Cost = A * X + B * Y = 120
+							</p>
+							<p class="stuff">... and this is just what the dashed blue line in the chart is telling us. If we choose any point 
+							on this line, we can be sure to spend &#8377;120 -- no more, no less. This line is called the <strong>Cost Contour</strong> 
+							for a cost of &#8377;120.</p>
+							
+							<p class="stuff">Now slowly change the <strong>Total Cost</strong> slider to 150. What do you notice about how the cost contour changes as
+							we consider higher and higher costs? We already pointed this out in an earlier module -- the line remains parallel to
+							itself (maintains the same slope) as we change the cost. Look at the above equation and explain why this is so. <strong>
+							Hint: </strong> Rewrite the equation in the form Y = m * X + c.
+							</p>
+							<p class="stuff">And now set the total cost slider to &#8377;75 and see what happens to the cost contour. Also, try changing
+							the cost of apples and bananas, and get a feel of how the cost contour changes.</p>
+							
+							
+						</div>
+
+						<div id="stuff2" class="stuffDiv inactiveStuff">
+						<h3 class="stuffH3"><span class="sectionNumber">4.2</span>Cost versus Goal</h3>
+							<p class="stuff">Now it's time to bring back certain other aspects of the problem which we ignored in the
+									previous tab. Let's include <strong>calories</strong> in our thinking once again. Let's set a <strong>
+									goal</strong> or <strong>constraint</strong>, saying that we want to get at least 360 calories per week. 
+									
+							</p>
+							
+							<table>
+								<tr>
+									<th>  </th>
+									<th>Apple </th>
+									<th>Banana</th>
+								</tr>
+								
+								<tr>
+									<th>Calories Available<br>per Fruit</th>
+									<td>50</td>
+									<td>40</td>
+								</tr>
+								
+								<tr>
+									<th>Calories Required<br>per week </th>
+									<td colspan="2">360 </td>
+								</tr>
+							</table>
+							
+							<p class = "stuff">This is the constraint given by the following equation: </p>
+							<p class="equation">50 * X + 40 * Y >= 360 </p>
+							<p class="stuff">The feasible region is <strong>above</strong> the green constraint line. And as before, the
+							"total cost" slider should be at 120, because that is still our assumption -- we want to spend <strong>exactly</strong> 120 
+							per week, on some combination of apples and bananas.</p>
+
+							<p class="stuff">So now the question is, if we want to spend exactly &#8377;120, then is it possible to meet our 
+							calories constraint of 360 calories? But remember, in order to spend 120, we need to be on the blue line; and 
+							in order to get at least 360 calories, we need to be above the green line!</p>
+							
+							<p class="stuff">Clearly, we can't find a point that's <strong>ON</strong> the blue line <strong>AND</strong> above the 
+							green line. So if we want to meet our calories goal, we <strong>have</strong> to move our blue line -- in other words, we have to be
+							ready to spend a little <strong>more</strong> than &#8377;120. And that's what we're going to try in the next tab.</p>
+												
+						</div>
+						
+						<div id="stuff3" class="stuffDiv inactiveStuff">
+						
+						<h3 class="stuffH3"><span class="sectionNumber">4.3</span>Spending Just Enough, but not Too Much</h3>
+						
+						<p class="stuff">Move the "Total Cost" slider to &#8377;180.</p>
+						
+						<p class="stuff">So at this moment we are asking, "if we are ready 
+						to spend &#8377;180, can we find a combination of apples and bananas that will give 360 calories?" In other words, is there
+						a point that lies on the blue line, but also lies above the green line? Obviously, yes! For example, 4 apples and 4 bananas will 
+						<strong>just</strong> work. And also 2 apples + 8 bananas ... etc etc.</p>
+						
+						<p class="stuff">So if we're ready to spend &#8377;180, then we can certainly meet our calories goal. But can we manage
+						to meet the same goal with a budget <strong>lower</strong> than &#8377;180? That's easy -- just move the slider back slowly
+						and reduce the "total cost" value. At what point can we say that the blue line <strong>just</strong> manages to pass through
+						the feasible region?</p>
+						
+						<p class ="stuff">You would have found that when the total cost is &#8377;135 then we can eat 0 apples and 9 bananas, which
+							will just give us 360 calories. </p>
+							
+						<p class = "stuff">Now let's try a different scenario and see how the optimum solution changes. 
+							Set the cost of apples to 20 and bananas to 35. (You may feel that this is not a realistic scenario,
+							but anyway...) Also set the total cost to &#8377;100. As we saw before, spending &#8377;100 will not be sufficient
+							to meet our goal, so let's slowly increase the cost slider. At which point do we <strong>just</strong> begin to get 
+							360 calories? And this time, which fruit turns out to be the better choice?
+						</p>
+						
+						<p class ="stuff"> You would have found that if we spend just &#8377;144 then we can manage to get 360 calories
+						by eating about 7 apples and <strong>no</strong> bananas.</p>
+						
+						<p class="stuff">Spend some time re-running the above two scenarios and try to see if you can explain the outcome 
+						based on common sense. If apples get costlier, then the solution will tend to prefer bananas, and vice versa. Similarly,
+						if apples provide more calories, then the solution would move towards preferring apples.</p>
+						
+						<p class="stuff">Finally, set cost per apple = 25 and cost per banana = 20. What happens to the solution? How many
+						apples and/or bananas do we need to eat for the cheapest solution?</p>
+						
+						<p class="stuff">As we adjust the cost slider, we find that the cost contour exactly overlaps the constraint line when cost = 180.
+						This shows that any point on the constraint line is feasible as well as economical. That is, we can consume any combination of apples and bananas that lies on the constraint line. </p>
+						
+						
+						</div>
+						
+						<div id="stuff4" class="stuffDiv inactiveStuff">
+							<h3 class="stuffH3"><span class="sectionNumber">4.4</span>A Scenario with Two Constraints</h3>
+							<p class="stuff">Up to this point we dealt with one constraint at a time, i.e. number of calories. It's time
+							to start thinking about more complex problems. For example, we may want to get 120 units of carbs and 90 units of protein.
+							And assume that apples and bananas provide these nutrients in the following amounts:</p>
+							
+							<table>
+									<tr>
+										<th> </th>
+										<td>Apples </td>
+										<td>Bananas </td>
+									</tr>
+									
+									<tr>
+										<td>Carbohydrates per fruit </td>
+										<td> 50 </td>
+										<td>40 </td>
+									</tr>
+									
+									<tr>
+										<td> Proteins per fruit </td>
+										<td> 20 </td>
+										<td> 30 </td>
+									</tr>
+								
+							</table>
+							<br>
+							<p class="stuff">These two requirements lead to these constraint equations:</p>
+							<p class="equation">[Carbs] 50 * X + 40 * Y >= 120</p>
+							<p class="stuff">and</p>
+							<p class="equation">[Proteins] 20 * X + 30 * Y >= 90 </p>
+							
+									
+						</div>
+						
+						<div id="stuff5" class="stuffDiv inactiveStuff"> 
+						<h3 class="stuffH3"><span class="sectionNumber">4.5</span>???</h3>
+						
+						</div>
+						
+						
+						<button class="navBtn" id="btnPrev" onclick="goPrev()">
+						&lt; Prev
+						</button>
+						
+						<button class="navBtn" id="btnNext" onclick="goNext()">
+						Next &gt;
+						</button>
+						<br>
+						<a href="..\Module-3-Inequalities\Inequalities.html">
+							<button class="navBtn" id="btnNxtMod">
+							&lt;&lt;	Module 3 
+							</button>
+						</a>
+						
+			<a href='underConstruction.html'>			
+			<button class="navBtn" id="btnNxtMod">
+								Module 5 &gt;&gt;
+			</button>
+			</a>			
+		</div>
+	</div>
+</div>
+
+
+					<script src='GraphicalSolution_events.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+
+		
+		
+		body {font-family: 'Caveat', cursive; text-align: left;
+				background-color:#e8e4de; 
+				padding: 1.2em;
+				}
+		
+		
+				h1 {margin: 1em auto; font-size: 26pt; text-align: left;
+				   font-family: 'Caveat', Cursive;
+				   color: blue; margin-left: 2em;}
+		h3 {  text-align:left; margin-left: 2em; margin-top: 0.25em; margin-bottom: 0.1em;
+				color: brown; font-family: bold;
+		    font-family: 'Caveat', Cursive; font-size: 22pt;}
+			
+		h4 { margin-left: 2em; font-size: 19pt; 
+			padding-top: 0.25em; margin-top: 0.15em; margin-bottom: 0.15em;}
+		
+		ul {font-size: 14pt; color: #4d4d99; background-color: #d7e4ec; 
+		    margin-left: 1.25em; margin-right: 1.25em; padding-left: 1.7em; padding-right: 1.7em; border-radius: 0.75em;}
+		
+		.ui-slider .ui-slider-handle {background-color: #fffc5c; 
+										top: -17px; border: solid green 4px;
+										text-align: center; padding-top: 5px;
+										width: 52px; height: 52px; border-radius: 20px;}
+		
+		.ui-slider {width: 25%; height: 19px; margin: 1em;
+				border: solid darkgrey 4px; background-color: #e9ebf9;}
+				
+		.ui-widget.ui-widget-content {border: solid #7274ed  4px;
+										background-color: #e0e8e0; margin: 2em;}
+		
+		
+		.sliderImg {
+							width:30px;
+							height:30px;
+							border-radius:8px;
+							vertical-align: middle;
+					}
+		
+		#handle1 	{
+						background-color: #f7fff7;
+					}
+					
+		#handle2, #handle3 {background-color: #e5ffcf; border: solid #ad6464 3px; }
+					
+		#slider1, #slider, #slider2, #slider3 {border-radius: 15px; width: 97%; margin-top: 0.5em; margin-bottom: 1.1em;}
+		
+		.sliderBox {display: inline-block; margin-left: 1em;
+					box-sizing: initial; border-bottom: solid grey 1px;
+					width: 85%;
+					}
+					
+		#otherSourcesH4 {display: none;}
+		
+		input[type="text"] {font-size: 16pt;}
+		
+		#numApples {color: blue; padding-left: 0.5em; padding-right: 0.5em; font-size: 22pt;
+					background-color: #ffee90; margin-left: 0.6em;
+					border-radius: 12px; font-family: "Calibri";
+					border: solid darkgrey 1px;}
+		#numBananas {color: #6c0c0c; padding-left: 0.5em; padding-right: 0.5em; font-size: 22pt;
+					background-color: #ffee90; margin-left: 0.6em;
+					border-radius: 12px; font-family: "Calibri";
+					border: solid darkgrey 1px;}
+					
+					
+		#totalCaloriesH4 {font-weight: bold; font-size: 26pt; color: blue; padding-left:2em;
+		                  }
+						  
+		#totalCaloriesSpan, #minCaloriesSpan, #maxCaloriesSpan {background-color: #e4f7b9; border: solid green 2px; border-radius: 0.3em;
+							padding: 0.15em; font-weight: bold;}
+							
+							
+						
+					
+		#titleH1 {font-family: Calibri; margin: 0; margin-left: 2em;}
+		
+		#divUI, #divText {background-color: #f6f8ff;
+				border-radius: 1.2em; border: solid #bfc2f0 1px;
+				box-shadow: 10px 10px 5px #b8b0b0;
+				margin-right: 1.25em;
+				}
+		
+		#moduleH4 {font-weight: bold; font-family: 'Roboto', sans-serif;
+					margin-left: 0.5em;
+					color: #3e56d9; font-size: 16pt;}
+		
+		#h2TextHead {background-color: #d1d1f3; margin-top: 0.4em; margin-bottom: 0.65em; border-radius: 0.8em; padding: 0.4em;}
+		
+		.sectionNumber {font-family: 'Roboto', sans-serif; font-size: 80%; font-weight: bold;
+						margin-right: 0.2em; color:#4c42c0;}
+		
+		.stuff {font-size: 14pt; font-family: 'Roboto', sans-serif; line-height: 105%;
+				color: #2a325a;
+				}
+				
+		.answer {display: none; padding-right: 1.5em; padding-left: 1.5em; 
+		         margin-left: 1.5em; margin-right: 1.5em; background-color: #d0d0ff;
+				 border-radius: 1em;}
+				
+		.equation{	color: blue; background-color: #efe7e7;
+					font-family:'Courier New'; padding-left: 0.2em; padding-right: 0.2em;
+					font-size:16pt; border-radius: 0.25em;
+					font-weight:bold;
+					}
+				
+		.stuffH3 {padding:0.2em; margin: 0.3em; font-weight: bold;}
+				
+		.tab {font-size: 14pt; width: 4em; text-align: center; font-family: 'Roboto', sans-serif;
+				display: inline-block; 
+				border-top: solid darkgreen 3px; border-top-left-radius: 0.8em; border-top-right-radius: 0.8em;
+				border-left: solid darkgreen 3px; border-right: solid darkgreen 3px;
+				cursor: pointer; user-select: none;
+				}
+		.inactiveTab {background-color: #f0deb4;}		
+		.inactiveTab:hover {background-color: #c3caff;}
+		.activeTab {background-color: #ffffbd;}
+		
+		.activeStuff {display: block;}
+		.inactiveStuff {display: none;}
+		
+		#tabStrip {margin-top: 0.4em; border-bottom: solid grey 3px; margin-bottom: 0.3em;}
+		
+		.navBtn {background-color: #5656f9; color: white; border: none;
+				font-family: 'Roboto', sans-serif; font-size: 14pt;
+				border-radius: 0.25em; margin-bottom: 0.3em;}
+				
+				
+		.navBtn:hover {color:yellow; font-weight: bold;}
+		
+		#btnPrev {display: none;}
+		#btnNext {display: inline;}
+		
+		table, th, td {
+						  border: 3px solid #5c59c2;
+						  border-collapse: collapse;
+						  padding: 0.2em; text-align: center;
+						  font-size: 18pt;
+						}
+		td {font-size: 18pt; font-family: "Comic Sans MS", cursive, sans-serif}
+		th {background-color: #e0e0f3;}
+		
+		#tdTotalCals {background-color: #bbe1bb; font-weight: bold; color: black}
