@@ -29,7 +29,7 @@
 
 </head>
 
-<body>
+<body >
 
 
 <div class="container-fluid" >
@@ -200,7 +200,7 @@
 							
 							<p class="stuff">Now we are thinking about apples, bananas, their respective calory contents, their
 											prices, AND how much we're going to eat of each fruit. That's a lot of information to keep track of! So let's put everything into
-											a nice table, like this:</p>
+											a nice <strong>dynamic</strong> table, like this:</p>
 							
 							<div>
 							<table id="tbl">
@@ -263,12 +263,36 @@
 																				
 							</table>
 							</div>
-							<br>	
-							<p class="stuff">Now click on any point inside the feasible region.</p>		
+							
+							<p class="stuff">Now click on any point <strong>inside</strong> the feasible region. Note that the number of
+							calories is within the constraints - so this is an acceptable solution, which is color coded <strong>green in the table.</strong>.
+							Try clicking <strong>outside</strong> the feasible region, and note that the calories value is either too high or too low.
+							This is colour coded <strong>red</strong> in the table.</p>
+
+							<p class="stuff">But what about the cost? We are showing the cost calculation in the table's last row. Try clicking on different points <strong>inside</strong> the feasible 
+							region (i.e. between the two lines) and watch what happens to the cost. Can you find the number of apples and bananas per
+							week that will meet the calories requirements, and <strong>also</strong> be the cheapest feasible combination?
+							</p>
 									
 						</div>
 						
+						<div id="stuff5" class="stuffDiv inactiveStuff"> 
+						<h3 class="stuffH3"><span class="sectionNumber">3.5</span>The Cheapest Combination that Works</h3>
+						<p class="stuff">In Tab 4 you tried to find the cheapest feasible combination of apples and bananas. You would have found that
+						this was zero apples and about 4.4 bananas -- and this point is exactly the lower-left corner of the feasible 
+						region. In fact, the optimum solution in a linear programming problem <strong>always</strong> lies on a corner 
+						of the feasible region, which means that we need to search only at the corners for our solution! You may also like to 
+						verify that the <strong>highest</strong> cost is found at another corner of the feasible region, i.e. the top right corner. 
+						In general, extreme points / maxima / minima are found at corners.
+						</p>
 						
+						<p class="stuff">Actually, we already knew that in this problem, apples cost <strong>much more</strong> than bananas -- so common
+						sense would tell us that we shouldn't spend our money on apples at all. But in real life, the solution is not always so obvious.
+						Imagine that for some reason we are considering some very expensive species of banana, or that apples happen to be unusually cheap.
+						If the numbers associated with apples and bananas don't have any obvious difference, then it wouldn't be so easy to decide the optimum 
+						solution. In Module 4 we will look at problems of that sort, and see how we actually find the optimum solution.
+						</p>
+						</div>
 						
 						
 						<button class="navBtn" id="btnPrev" onclick="goPrev()">
@@ -285,7 +309,7 @@
 							</button>
 						</a>
 						
-			<a href='underConstruction.html'>			
+			<a href='..\Module-4-Graphical-Solution\GraphicalSolution.html'>			
 			<button class="navBtn" id="btnNxtMod">
 								Module 4 &gt;&gt;
 			</button>

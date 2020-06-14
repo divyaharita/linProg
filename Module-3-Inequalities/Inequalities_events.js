@@ -197,6 +197,7 @@ var myData
 								case 5:
 								
 								myPoint.y =  ($("#val_c").val() - a * i)/ b 
+								myPoint2.y= ($("#val_d").val() - a * i ) / b 
 								break;
 								
 								
@@ -251,7 +252,7 @@ var myData
 	
 	function goTab(t,tn)
 	{	currentTab=tn 
-		console.log(tn + " " + t.id);
+		console.log("goTab --> " + tn + " " + t.id);
 		var tt=$(t)
 		console.log(tt.hasClass("activeTab"))
 		if (tt.hasClass("inactiveTab"))
@@ -406,7 +407,38 @@ var myData
 						}
 						
 			if (tn==5)
-						{	$("#bananaSliderBox").show(1000)
+						{	
+					
+								$("#val_a").val(50)
+							$("#slider").slider("value",50)
+							$("#numApples").text(50)
+							
+							$("#val_b").val(90)
+							$("#slider1").slider("value",90)
+							$("#numBananas").text(90)
+
+
+						$("#minCalsDiv").removeClass("col-12"); 
+						$("#minCalsDiv").addClass("col-6");
+						$("#minCalsTitleSpan").text("Min Cals. :")
+						
+						$("#maxCalsDiv").show(700)
+
+						$("#slider2").slider("value",400)
+						$("#minCaloriesSpan").text("400")
+						$("#val_c").val('400')
+						
+						
+						$("#val_d").val('600')
+						$("#maxCaloriesSpan").text("600")
+						$("#val_d").val('600')
+						$("#slider3").slider("value",600)
+						
+						ccc.data.datasets[2].data[0]={x:3, y:4}
+						
+						ccc.options.onClick= function(e) {star2Click(e)}
+					
+						/*	$("#bananaSliderBox").show(1000)
 							$("#bananasHead").show(1000)
 							$("#caloriesSliderBox").show(500);
 							$("#otherSourcesH4").hide(1000)
@@ -424,6 +456,8 @@ var myData
 							ccc.options.scales.xAxes[0].scaleLabel.labelString="Apples per Week (X) "
 							
 							ccc.options.scales.yAxes[0].ticks.max=10
+							
+						*/
 						}
 			
 			makeChart()
@@ -513,3 +547,20 @@ var myData
 					 }
 			
 		}
+/*
+function doHash()
+	{   console.log("hash: " + document.location.hash)
+		hasH=1.0 * document.location.hash.substring(2,1).trim()
+		currentTab=hasH
+		tabElem=$("#tab" + hasH).get(0)
+		console.log(" - hasH - " + hasH + " tabsel -> " + tabElem)
+		if(document.location.hash != "")
+			{
+				
+				currentTab=hasH
+				goTab(tabElem , hasH)
+			}
+	}
+	
+doHash()
+*/
