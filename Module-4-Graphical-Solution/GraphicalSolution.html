@@ -190,7 +190,7 @@
 						
 						<p class="stuff">So if we're ready to spend &#8377;180, then we can certainly meet our calories goal. But can we manage
 						to meet the same goal with a budget <strong>lower</strong> than &#8377;180? That's easy -- just move the slider back slowly
-						and reduce the "total cost" value. At what point can we say that the blue line <strong>just</strong> manages to pass through
+						and reduce the "total cost" value. At what point can we say that the blue line <strong>just</strong> manages to touch
 						the feasible region?</p>
 						
 						<p class ="stuff">You would have found that when the total cost is &#8377;135 then we can eat 0 apples and 9 bananas, which
@@ -221,42 +221,116 @@
 						
 						<div id="stuff4" class="stuffDiv inactiveStuff">
 							<h3 class="stuffH3"><span class="sectionNumber">4.4</span>A Scenario with Two Constraints</h3>
-							<p class="stuff">Up to this point we dealt with one constraint at a time, i.e. number of calories. It's time
-							to start thinking about more complex problems. For example, we may want to get 120 units of carbs and 90 units of protein.
+							<p class="stuff">Up to this point we dealt with one constraint at a time, i.e. number of calories. But now, it's time
+							to start thinking about more complex problems. For example, we may want to get 540 units of carbs and 480 units of protein.
 							And assume that apples and bananas provide these nutrients in the following amounts:</p>
 							
 							<table>
 									<tr>
 										<th> </th>
-										<td>Apples </td>
-										<td>Bananas </td>
+										<th>Apples<br> (X) </th>
+										<th>Bananas<br> (Y) </th>
+										<th>Reqd.<br>per week</th>
 									</tr>
 									
-									<tr>
-										<td>Carbohydrates per fruit </td>
-										<td> 50 </td>
-										<td>40 </td>
+									<tr class="carbs">
+										<th>Carbohydrates</th>
+										<td> 90 </td>
+										<td>60 </td>
+										<td>540</td>
 									</tr>
 									
-									<tr>
-										<td> Proteins per fruit </td>
-										<td> 20 </td>
-										<td> 30 </td>
+									<tr class="proteins">
+										<th> Proteins</th>
+										<td> 60 </td>
+										<td> 80 </td>
+										<td>480</td>
 									</tr>
 								
 							</table>
+							
+							
+							
 							<br>
 							<p class="stuff">These two requirements lead to these constraint equations:</p>
-							<p class="equation">[Carbs] 50 * X + 40 * Y >= 120</p>
+							<p class="equation">[Carbs] 90 * X + 60 * Y >= 540</p>
 							<p class="stuff">and</p>
-							<p class="equation">[Proteins] 20 * X + 30 * Y >= 90 </p>
+							<p class="equation">[Proteins] 60 * X + 80 * Y >= 480 </p>
+							
+							<p class="stuff">The two constraint lines are plotted in the chart in green and brown. And as usual,
+											the feasible region is shaded in light blue -- the region where both of the 
+											nutrition goals are being met.</p>
+							<p class="stuff">How do we find the cheapest combination of fruits which will provide us
+									with the required units of carbs and proteins? We just slowly increase the Total cost slider
+									until it just touches any corner of the feasible region. Try it now !! </p>
+									
+							<p class ="stuff">Did you find that the cost contour touched the feasible region at (4,3) ? 
+							This means we have to consume 4 apples and 3 bananas, which will cost us  &#8377;160.
+							This is the cheapest way to meet our nutrition constraints. Note that any point above the blue dashed cost contour
+							would give us a cost higher than &#8377;160.</p>
+							
+							<p class="stuff">As before, try to modify the scenario (i.e. cost per apple and cost per banana)
+							in such a way that the solution process would prefer apples, and again in such a way that the solution would
+							prefer only bananas. Note how your changes affect the cost contour, and how the result matches your
+							common sense expectation.</p>
 							
 									
 						</div>
 						
 						<div id="stuff5" class="stuffDiv inactiveStuff"> 
-						<h3 class="stuffH3"><span class="sectionNumber">4.5</span>???</h3>
+						<h3 class="stuffH3"><span class="sectionNumber">4.5</span>A Scenario with 3 Constraints </h3>
 						
+						<p class="stuff"> So we learnt how to solve a problem with 2 constraints, 
+											but now what about a problem with 3 constraints? 
+											Look at the table below, which has a new dietary requirement namely vitamins.</p>
+						
+						<table>
+									<tr>
+										<th> </th>
+										<th>Apples<br> (X) </th>
+										<th>Bananas<br> (Y) </th>
+										<th>Reqd.<br>per week</th>
+									</tr>
+									
+									<tr class="carbs">
+										<th>Carbohydrates</th>
+										<td> 30 </td>
+										<td>10 </td>
+										<td>90</td>
+									</tr>
+									
+									<tr class="proteins">
+										<th> Proteins</th>
+										<td> 30 </td>
+										<td> 90 </td>
+										<td>270</td>
+									</tr>
+									
+									<tr class="vitamins">
+										<th>Vitamins</th>
+										<td> 10 </td>
+										<td> 10 </td>
+										<td> 60 </td>
+									</tr>
+								
+							</table>
+							
+							<br>
+							
+							<p class="stuff">These three requirements lead to these constraint equations:</p>
+							<p class="equation">[Carbs] 30 * X + 10 * Y >= 90</p>
+							
+							<p class="equation">[Proteins] 30 * X + 90 * Y >= 270 </p>
+							<p class="equation">[Vitamins] 10 * X + 10 * Y >= 60 </p>
+							<p class="stuff"> Therefore, the graph has 3 constraint lines which define the feasible region.
+											Actually, this problem is not really more difficult than the previous one.
+											The method remains the same -- we just slide the Total cost upwards gradually until 
+											it just touches any corner of the feasible region. Try it now...
+											</p>
+											
+							<p class = "stuff"> You must have found that the cost contour touches the feasible region at this corner (1.5, 4.5).
+							So we must consume 1.5 apples and 4.5 bananas to satisfy all the nutrition constraints. </p>
+							
 						</div>
 						
 						

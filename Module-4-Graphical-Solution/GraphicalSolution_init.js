@@ -33,7 +33,7 @@
 			
 								min: 0,
 								max: 200,
-								step: 5,
+								step: 1,
 								value: 120,
 								animate: true,
 								slide: function( event, ui ) {		console.log("aaa")

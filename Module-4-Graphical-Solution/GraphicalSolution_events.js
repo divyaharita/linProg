@@ -11,10 +11,10 @@
 				data:
 						{
 							
-							datasets:[   // array of datasets, one for each curve
+							datasets:[   // array of datasets, one for each curve     [0]
 							
 										{  // first dataset
-											label: 'Calories per week',
+											label: 'Cost Contour',
 											data:	[
 														{x:0, y:0},  //this dataset has only one point
 														
@@ -37,30 +37,64 @@
 										},
 							
 										
-										{   //second dataset
-										    label:".", 
+										{   //second dataset                     [1]
+										    label:"First Constraint", 
 											data: [ { x:1, y: 1},{ x:8, y:25}], 
 											borderWidth:3,
 											showLine: true,
-											fill: 2,
-											fillColor: "#e1f0e8",
-											borderColor:"#124a1d",
+											fill: false,
+											
+											borderColor:"green",
 											backgroundColor:"#dadaff60",
-											pointRadius:7,
+											pointRadius:4,
 											lineTension:0
 										},
 								
-								
+										{ 	// second constraint  				[2]
+											label: "Second Constraint",
+											data: [{x:1, y:2},{x:2,y:3,},{x:3,y:2},{x:4,y:2}],
+											borderWidth: 3,
+											showLine: true,
+											fill: false,
+											borderColor: "brown",
+											pointRadius: 4,
+											lineTension: 0,
+											backgroundColor:"#eaf4e760"
+										},
+										
+										{  // third constraint                  [3]
+																						label: "Second Constraint",
+											data: [{x:1, y:2},{x:2,y:3,},{x:3,y:2},{x:4,y:2}],
+											borderWidth: 3,
+											showLine: true,
+											fill: false,
+											borderColor: "gray",
+											pointRadius: 4,
+											lineTension: 0,
+											backgroundColor:"#eaf4e760"
+											
+										},
+										
+										{	//  combined constraints 			[4]
+											label: "both constraints",
+											data: [{x:1, y:2},{x:2,y:3,},{x:3,y:2},{x:4,y:2}],
+											borderWidth: 1,
+											showLine: true,
+											fill: 5,
+											borderColor: "#f5f5f5",
+											pointRadius: 0,
+											lineTension: 0,
+											backgroundColor: "#dadaff60"
+										},
 										
 										
-										{// dummy dataset for upper fill boundary of feasible region
+										{// dummy dataset for upper fill boundary of feasible region  [5]
 										
-										    data: [{x: 0, y: 9.5},{x: 9.5, y:0}],
+										    data: [{x: 0, y: 19.5},{x: 19.5, y:0}],
 											showLine: true,
 											fill: false
 											
 										},
-										
 										
 										{ // star marker for clicked point
 											data: [{x:0, y:0}],
@@ -125,7 +159,10 @@
 																min:0, max: 10,
 																fontSize: 32,
 																fontColor: 'black'
-															}
+															},
+													gridLines: {zeroLineWidth: 3,
+																color: "#505050"
+																}
 												}
 											],
 											
@@ -137,7 +174,12 @@
 													},
 													ticks: {fontSize: 32, fontColor:'black',
 															min:0, max:10
-															}										
+															},
+
+													
+													gridLines: {zeroLineWidth: 3,
+																color: "#505050"
+																}		
 												
 												}
 									
@@ -170,7 +212,7 @@ var myData
 
 
 	function makeChart()
-				{	myData = []; myData2=[]; myData3=[];
+				{	myData0 = []; myData1=[]; myData2=[]; myData3=[]; myData4=[]; myData5=[]
 					a=1.0*$("#val_a").val()
 					b=1.0*$("#val_b").val()
 					
@@ -179,45 +221,64 @@ var myData
 					
 					for (i=0; i<12; i++)
 						{	
-							myPoint ={}  // Point for first line -- datasets[0]
-							myPoint2={}   // Point for second line -- datasets[1]
-							myPoint3={} // point for 3rd line (upper bound of feas. reg.)
+							myPoint0 ={}  // Point for cost contour -- datasets[0]
+							myPoint1={}   // Point for first constraint -- datasets[1]
+							myPoint2={} // point for second constraint 
+							myPoint3={} // point for third constraint
+							myPoint4={} // combined constraints
+							myPoint5={} // point for shading boundary
 							
-							myPoint.x = i*1.0
+							myPoint0.x = i*1.0
+							myPoint1.x = i*1.0
 							myPoint2.x = i*1.0
-							myPoint3.x=i*1.0
+							myPoint3.x = i*1.0
+							myPoint4.x = i*1.0
+							myPoint5.x = i*1.0
 							
 							
 							switch(currentTab)
 							{	case 1:
-								myPoint.y =  ($("#val_c").val() - a * i)/ b
+								myPoint0.y =  ($("#val_c").val() - a * i)/ b
 								break;
 								
 								case 2:
-								myPoint.y =  ($("#val_c").val() - a * i)/ b 
-								myPoint2.y= -50.*i/40 + 360/40 
-								myPoint3.y= 15.
+								myPoint0.y =  ($("#val_c").val() - a * i)/ b 
+								myPoint1.y= -50.*i/40 + 360/40 
+								myPoint5.y= 15.
 								
 															
 								
 								break;
 								
 								case 3:
-								myPoint.y =  ($("#val_c").val() - a * i)/ b 
-								myPoint2.y= -50.*i/40 + 360/40 
-								myPoint3.y= 15.
+								myPoint0.y =  ($("#val_c").val() - a * i)/ b 
+								
+								myPoint1.y= -50.*i/40 + 360/40 
+								
+								
+								myPoint5.y= 15.
 								break;
 								
 								case 4:
-								myPoint.y =  ($("#val_c").val() - a * i)/ b 
-								myPoint2.y= -50.*i/40 + 360/40 
-								myPoint3.y= 15.
+								myPoint0.y =  ($("#val_c").val() - a * i)/ b 
+								myPoint1.y= 9.0 - 9.0  / 6.0 * i
+								myPoint2.y = 6.0 - 6.0 / 8.0 * i
+								
+								
+								myPoint4.y = Math.max( myPoint1.y, myPoint2.y) 
+								myPoint5.y= 15.
 								break;
 								
 								case 5:
 								
-								myPoint.y =  ($("#val_c").val() - a * i)/ b 
-								myPoint2.y= ($("#val_d").val() - a * i ) / b 
+								myPoint0.y =  ($("#val_c").val() - a * i)/ b 
+								myPoint1.y= 9.0 - 9.0  / 3.0 * i
+								myPoint2.y = 3.0 - 3.0 / 9.0 * i
+								myPoint3.y = 6.0 - i
+								
+								
+								myPoint4.y = Math.max( myPoint1.y, myPoint2.y, myPoint3.y) 
+								myPoint5.y= 15.
 								break;
 								
 								
@@ -227,19 +288,25 @@ var myData
 								
 							}
 			
-							myData.push(myPoint);
-							myData2.push (myPoint2)
+							myData0.push(myPoint0);
+							myData1.push (myPoint1)
+							myData2.push(myPoint2)
 							myData3.push(myPoint3)
-							
+							myData4.push(myPoint4)
+							myData5.push(myPoint5)
 							//console.log("i,a,b "+i+" " + a + " " + b + " " + myPoint.y)
 						}
 						
 							
 							
 						//	console.log("a, b" + a + " , " + b + " : " )
-							ccc.data.datasets[0].data=myData
-							ccc.data.datasets[1].data=myData2 
-							ccc.data.datasets[2].data=myData3
+							ccc.data.datasets[0].data=myData0
+							ccc.data.datasets[1].data=myData1 
+							ccc.data.datasets[2].data=myData2
+							ccc.data.datasets[3].data=myData3
+							ccc.data.datasets[4].data=myData4
+							ccc.data.datasets[5].data=myData5
+							
 							ccc.update()
 							
 							if (currentTab==4)
@@ -364,6 +431,7 @@ var myData
 						
 						
 						ccc.options.onClick=null
+						ccc.data.datasets[1].fill=5
 						
 					}			
 					 
@@ -395,22 +463,23 @@ var myData
 						
 						
 						ccc.options.onClick=null
+						ccc.data.datasets[1].fill=5
 							
 						}
 						
 			if (tn==4) {
 
-								$("#val_a").val(30)
-							$("#slider").slider("value",30)
-							$("#numApples").text(30)
+								$("#val_a").val(25)
+							$("#slider").slider("value",25)
+							$("#numApples").text(25)
 							
-							$("#val_b").val(15)
-							$("#slider1").slider("value",15)
-							$("#numBananas").text(15)
+							$("#val_b").val(20)
+							$("#slider1").slider("value",20)
+							$("#numBananas").text(20)
 							
-							$("#minCaloriesSpan").text("120")
-							$("#val_c").val("120")
-							$("#slider2").slider("value",120)
+							$("#minCaloriesSpan").text("100")
+							$("#val_c").val("100")
+							$("#slider2").slider("value",100)
 							
 							$("#minCalsTitleSpan").text("Total Cost: ₹");
 							ccc.options.scales.yAxes[0].scaleLabel.labelString="Bananas per Week (Y) "
@@ -426,61 +495,40 @@ var myData
 						
 						
 						ccc.options.onClick=null
+						ccc.data.datasets[1].fill=false
 						
 						}
 						
 			if (tn==5)
 						{	
 					
-								$("#val_a").val(50)
-							$("#slider").slider("value",50)
-							$("#numApples").text(50)
+								$("#val_a").val(25)
+							$("#slider").slider("value",25)
+							$("#numApples").text(25)
 							
-							$("#val_b").val(90)
-							$("#slider1").slider("value",90)
-							$("#numBananas").text(90)
-
-
-						$("#minCalsDiv").removeClass("col-12"); 
-						$("#minCalsDiv").addClass("col-6");
-						$("#minCalsTitleSpan").text("Min Cals. :")
-						
-						$("#maxCalsDiv").show(700)
-
-						$("#slider2").slider("value",400)
-						$("#minCaloriesSpan").text("400")
-						$("#val_c").val('400')
-						
-						
-						$("#val_d").val('600')
-						$("#maxCaloriesSpan").text("600")
-						$("#val_d").val('600')
-						$("#slider3").slider("value",600)
-						
-						ccc.data.datasets[2].data[0]={x:3, y:4}
-						
-						ccc.options.onClick= function(e) {star2Click(e)}
-					
-						/*	$("#bananaSliderBox").show(1000)
-							$("#bananasHead").show(1000)
-							$("#caloriesSliderBox").show(500);
-							$("#otherSourcesH4").hide(1000)
-							$("#totalCaloriesH4").show()
+							$("#val_b").val(20)
+							$("#slider1").slider("value",20)
+							$("#numBananas").text(20)
 							
-														$("#val_a").val(50)
-							$("#slider").slider("value",50)
-							$("#numApples").text(50)
+							$("#minCaloriesSpan").text("55")
+							$("#val_c").val("55")
+							$("#slider2").slider("value",55)
 							
-							$("#val_b").val(90)
-							$("#slider1").slider("value",90)
-							$("#numApples").text(90)
-							
+							$("#minCalsTitleSpan").text("Total Cost: ₹");
 							ccc.options.scales.yAxes[0].scaleLabel.labelString="Bananas per Week (Y) "
 							ccc.options.scales.xAxes[0].scaleLabel.labelString="Apples per Week (X) "
 							
 							ccc.options.scales.yAxes[0].ticks.max=10
 							
-						*/
+						$("#minCalsDiv").addClass("col-12"); 
+						$("#minCalsDiv").removeClass("col-6");
+						
+						
+						$("#maxCalsDiv").hide(700)
+						
+						
+						ccc.options.onClick=null
+						ccc.data.datasets[1].fill=false
 						}
 			
 			makeChart()
