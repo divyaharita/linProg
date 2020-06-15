@@ -375,7 +375,7 @@ var myData
 				else
 				{$("#btnPrev").css("display","inline")}
 			
-			if(tn>=5)   // last tab --> no next tab
+			if(tn>=6)   // last tab --> no next tab
 			{$("#btnNext").css("display","none")}
 			else 
 			{$("#btnNext").css("display","inline")}
@@ -563,7 +563,7 @@ var myData
 		}
 
 	function goNext()
-		{if(currentTab < 4)
+		{if(currentTab < 7)
 			{
 				tn=currentTab+1
 				tt=$("#tab"+tn).eq(0)
