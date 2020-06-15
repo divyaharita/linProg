@@ -281,6 +281,17 @@ var myData
 								myPoint5.y= 15.
 								break;
 								
+								case 6:
+																myPoint0.y =  ($("#val_c").val() - a * i)/ b 
+								myPoint1.y= 9.0 - 9.0  / 3.0 * i
+								myPoint2.y = 3.0 - 3.0 / 9.0 * i
+								myPoint3.y = 6.0 - i
+								
+								
+								myPoint4.y = Math.max( myPoint1.y, myPoint2.y, myPoint3.y) 
+								myPoint5.y= 15.
+								
+								break;
 								
 								default:
 								myPoint.y = a * i + otherCals
@@ -530,6 +541,7 @@ var myData
 						ccc.options.onClick=null
 						ccc.data.datasets[1].fill=false
 						}
+			if (tn==6){}
 			
 			makeChart()
 			
