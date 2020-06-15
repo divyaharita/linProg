@@ -375,7 +375,7 @@ var myData
 		}
 
 	function goNext()
-		{if(currentTab < 4)
+		{if(currentTab < 6)
 			{
 				tn=currentTab+1
 				tt=$("#tab"+tn).eq(0)
